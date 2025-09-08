@@ -3,7 +3,7 @@ fullnameOverride: ""
 
 image:
   repository: kylesungproject/msa-project
-  tag: "0.0.0"
+  tag: "<short-sha>"
   pullPolicy: IfNotPresent
 
 replicaCount: 1
@@ -23,7 +23,7 @@ env:
 probes:
   startup:
     path: "/actuator/health"
-    failureThreshold: 30     # 30 * 5s = 150초까지 대기
+    failureThreshold: 30
     periodSeconds: 5
     timeoutSeconds: 2
 
