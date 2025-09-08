@@ -9,8 +9,6 @@ charts/
 Chart.lock
 
 # Kubernetes secrets
-*secret*.yaml
-*Secret*.yaml
 *.key
 *.pem
 *.crt
