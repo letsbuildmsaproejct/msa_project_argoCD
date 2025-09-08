@@ -3,7 +3,7 @@ fullnameOverride: ""
 
 image:
   repository: kylesungproject/msa-project
-  tag: "<short-sha>"
+  tag: "5f79db5"
   pullPolicy: IfNotPresent
 
 replicaCount: 1
