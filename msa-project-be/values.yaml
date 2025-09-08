@@ -50,8 +50,10 @@ resources:
     cpu: 300m
     memory: 512Mi
 
-inlineSecret:
-  enabled: false
+dev:
+  inlineSecret:
+    enabled: false
+    data: {}
 
 nodeSelector: {}
 tolerations: []
