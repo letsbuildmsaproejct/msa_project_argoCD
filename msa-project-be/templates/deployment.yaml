@@ -25,6 +25,23 @@ spec:
                 name: {{ .Values.env.secretName }}
             - configMapRef:
                 name: {{ .Values.env.configMapName }}
+          startupProbe:
+            httpGet:
+              path: {{ .Values.probes.startup.path | quote }}
+              port: {{ .Values.service.port }}
+            failureThreshold: {{ .Values.probes.startup.failureThreshold }}
+            periodSeconds: {{ .Values.probes.startup.periodSeconds }}
+            timeoutSeconds: {{ .Values.probes.startup.timeoutSeconds }}
+
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.probes.liveness.path | quote }}
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
+            failureThreshold: {{ .Values.probes.liveness.failureThreshold }}
+            timeoutSeconds: {{ .Values.probes.liveness.timeoutSeconds }}
+
           readinessProbe:
             httpGet:
               path: {{ .Values.probes.readiness.path | quote }}
@@ -32,11 +49,6 @@ spec:
             initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
             failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
-          livenessProbe:
-            httpGet:
-              path: {{ .Values.probes.liveness.path | quote }}
-              port: {{ .Values.service.port }}
-            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
-            periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
+            timeoutSeconds: {{ .Values.probes.readiness.timeoutSeconds }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
