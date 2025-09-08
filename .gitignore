@@ -1,0 +1,33 @@
+**/infra/certs/
+**/*.secret.yaml
+!**/*.sealedsecret.yaml
+repo-cred-template.yaml
+
+# Helm
+*.tgz
+charts/
+Chart.lock
+
+# Kubernetes secrets
+*secret*.yaml
+*Secret*.yaml
+*.key
+*.pem
+*.crt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
