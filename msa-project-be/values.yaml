@@ -3,7 +3,7 @@ fullnameOverride: ""
 
 image:
   repository: kylesungproject/msa-project
-  tag: "latest"
+  tag: "0.0.0"
   pullPolicy: IfNotPresent
 
 replicaCount: 1
