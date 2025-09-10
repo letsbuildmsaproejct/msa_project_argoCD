@@ -2,7 +2,7 @@ nameOverride: ""
 fullnameOverride: ""
 image:
   repository: kylesungproject/msa-project
-  tag: "220031d"
+  tag: "0f84768"
   pullPolicy: IfNotPresent
 replicaCount: 1
 service:
