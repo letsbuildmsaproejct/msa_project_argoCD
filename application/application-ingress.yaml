@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: msa-project-ingress
+  namespace: argocd
+spec:
+  project: msa-project
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: msa-project
+  source:
+    repoURL: https://github.com/letsbuildmsaproejct/msa_project_argoCD.git
+    targetRevision: main
+    path: infra
+    directory:
+      recurse: false
+      include: ingress-common.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

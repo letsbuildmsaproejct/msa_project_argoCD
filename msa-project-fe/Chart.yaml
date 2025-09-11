@@ -1,0 +1,6 @@
+apiVersion: v2
+name: msa-project-fe
+description: Helm chart for the msa_project_fe frontend service
+version: 0.1.0
+appVersion: "1.0.0"
+type: application

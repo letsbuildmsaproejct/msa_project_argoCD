@@ -42,7 +42,7 @@ probes:
     timeoutSeconds: 2
 
 ingress:
-  enabled: true
+  enabled: false
   className: "nginx"
   annotations: {}
   hosts:

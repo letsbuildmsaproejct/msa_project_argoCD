@@ -13,5 +13,5 @@ An Argo CD `Application` manifest is provided in `application.yaml` for deployin
 Apply it with:
 
 ```bash
-kubectl apply -f application.yaml
+kubectl apply -f application-be.yaml
 ```

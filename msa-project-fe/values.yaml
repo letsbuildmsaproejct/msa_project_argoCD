@@ -1,0 +1,43 @@
+image:
+  repository: kylesungproject/msa-project-fe
+  tag: "0.0.0"
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 80
+
+# 공통 ingress 사용 → 별도 Ingress 비활성
+ingress:
+  enabled: false
+
+env:
+  APP_ENV: "prod"
+  API_BASE_PATH: "/api"
+
+secretEnvFrom: []
+# - name: frontend-env   # (SealedSecret → Secret 이름)
+
+probes:
+  readiness:
+    path: "/"
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 2
+    failureThreshold: 6
+  liveness:
+    path: "/healthz"
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 2
+    failureThreshold: 3
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi

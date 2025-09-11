@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: msa-project
+  namespace: argocd
+spec:
+  description: MSA Project applications
+  sourceRepos:
+    - 'https://github.com/letsbuildmsaproejct/msa_project_argoCD.git'
+  destinations:
+    - namespace: msa-project
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist: []
+  namespaceResourceWhitelist:
+    - group: ''
+      kind: ConfigMap
+    - group: ''
+      kind: Secret
+    - group: ''
+      kind: Service
+    - group: apps
+      kind: Deployment
+    - group: networking.k8s.io
+      kind: Ingress
+  roles:
+    - name: admin
+      policies:
+        - p, proj:msa-project:admin, applications, *, msa-project/*, allow
+        - p, proj:msa-project:admin, repositories, *, *, allow
+      groups:
+        - msa-project:admin
