@@ -1,57 +1,47 @@
 nameOverride: ""
 fullnameOverride: ""
-
 image:
   repository: kylesungproject/msa-project
-  tag: "5f79db5"
+  tag: "3a86495"
   pullPolicy: IfNotPresent
-
 replicaCount: 1
-
 service:
   type: ClusterIP
   port: 8080
-
 config:
   SPRING_PROFILES_ACTIVE: "prod"
   LOG_LEVEL: "INFO"
-
 env:
   secretName: "msa-project-be-secret"
   configMapName: "msa-project-be-config"
-
 probes:
   startup:
     path: "/actuator/health"
     failureThreshold: 30
     periodSeconds: 5
     timeoutSeconds: 2
-
   liveness:
     path: "/actuator/health/liveness"
     initialDelaySeconds: 10
     periodSeconds: 10
     failureThreshold: 3
     timeoutSeconds: 2
-
   readiness:
     path: "/actuator/health/readiness"
     initialDelaySeconds: 10
     periodSeconds: 10
     failureThreshold: 3
     timeoutSeconds: 2
-
 ingress:
   enabled: false
   className: "nginx"
   annotations: {}
   hosts:
-    - host: 127.0.0.1.nip.io
-      paths:
-        - path: /
-          pathType: Prefix
+  - host: 127.0.0.1.nip.io
+    paths:
+    - path: /
+      pathType: Prefix
   tls: []
-
 resources:
   requests:
     cpu: 150m
@@ -59,12 +49,10 @@ resources:
   limits:
     cpu: 300m
     memory: 512Mi
-
 dev:
   inlineSecret:
     enabled: false
     data: {}
-
 nodeSelector: {}
 tolerations: []
 affinity: {}
