@@ -9,7 +9,6 @@ service:
   type: ClusterIP
   port: 80
 
-# 공통 ingress 사용 → 별도 Ingress 비활성
 ingress:
   enabled: false
 
@@ -18,7 +17,6 @@ env:
   API_BASE_PATH: "/api"
 
 secretEnvFrom: []
-# - name: frontend-env   # (SealedSecret → Secret 이름)
 
 probes:
   readiness:
