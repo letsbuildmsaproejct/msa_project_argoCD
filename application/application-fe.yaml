@@ -4,7 +4,7 @@ metadata:
   name: msa-project-fe
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: app=docker.io/kylesungproject/msa-project-fe
+    argocd-image-updater.argoproj.io/image-list: app=kylesungproject/msa-project-fe
     argocd-image-updater.argoproj.io/app.helm.image-name: image.repository
     argocd-image-updater.argoproj.io/app.helm.image-tag: image.tag
     argocd-image-updater.argoproj.io/app.update-strategy: latest
