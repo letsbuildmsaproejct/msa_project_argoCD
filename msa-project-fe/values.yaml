@@ -1,6 +1,6 @@
 image:
   repository: kylesungproject/msa-project-fe
-  tag: "1bb591d"
+  tag: "7874209"
   pullPolicy: IfNotPresent
 
 replicaCount: 1
