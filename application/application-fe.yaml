@@ -14,7 +14,7 @@ metadata:
     argocd-image-updater.argoproj.io/git-user-name: "argo-image-updater"
     argocd-image-updater.argoproj.io/git-user-email: "argo-image-updater@local"
 spec:
-  project: msa-project
+  project: default
   destination:
     server: https://kubernetes.default.svc
     namespace: msa-project

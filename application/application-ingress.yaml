@@ -4,7 +4,7 @@ metadata:
   name: msa-project-ingress
   namespace: argocd
 spec:
-  project: msa-project
+  project: default
   destination:
     server: https://kubernetes.default.svc
     namespace: msa-project
