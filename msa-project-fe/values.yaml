@@ -26,7 +26,7 @@ probes:
     timeoutSeconds: 2
     failureThreshold: 6
   liveness:
-    path: "/healthz"
+    path: "/health"
     initialDelaySeconds: 10
     periodSeconds: 10
     timeoutSeconds: 2
