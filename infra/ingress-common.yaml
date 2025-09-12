@@ -9,7 +9,7 @@ spec:
     - host: 127.0.0.1.nip.io
       http:
         paths:
-          - path: /
+          - path: /api
             pathType: Prefix
             backend:
               service:
