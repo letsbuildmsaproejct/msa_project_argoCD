@@ -2,9 +2,8 @@ nameOverride: ""
 fullnameOverride: ""
 image:
   repository: kylesungproject/msa-project-be
-  tag: "6df6eea"
+  tag: "0c3865b"
   pullPolicy: IfNotPresent
-
 replicaCount: 1
 service:
   type: ClusterIP
