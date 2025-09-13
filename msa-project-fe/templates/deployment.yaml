@@ -28,6 +28,12 @@ spec:
             - secretRef:
                 name: {{ .name }}
             {{- end }}
+          startupProbe:
+            httpGet:
+              path: {{ .Values.probes.startup.path | default "/" | quote }}
+              port: {{ .Values.service.port }}
+            failureThreshold: {{ .Values.probes.startup.failureThreshold | default 30 }}
+            periodSeconds: {{ .Values.probes.startup.periodSeconds | default 1 }}
           readinessProbe:
             httpGet:
               path: {{ .Values.probes.readiness.path | default "/" | quote }}
@@ -38,7 +44,7 @@ spec:
             failureThreshold: {{ .Values.probes.readiness.failureThreshold | default 6 }}
           livenessProbe:
             httpGet:
-              path: {{ .Values.probes.liveness.path | default "/healthz" | quote }}
+              path: {{ .Values.probes.liveness.path | default "/" | quote }}
               port: {{ .Values.service.port }}
             initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds | default 10 }}
             periodSeconds: {{ .Values.probes.liveness.periodSeconds | default 10 }}

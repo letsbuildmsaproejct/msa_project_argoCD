@@ -19,6 +19,10 @@ env:
 secretEnvFrom: []
 
 probes:
+  startup:
+    path: "/"
+    failureThreshold: 60
+    periodSeconds: 2
   readiness:
     path: "/"
     initialDelaySeconds: 5
@@ -26,7 +30,7 @@ probes:
     timeoutSeconds: 2
     failureThreshold: 6
   liveness:
-    path: "/health"
+    path: "/"
     initialDelaySeconds: 10
     periodSeconds: 10
     timeoutSeconds: 2
