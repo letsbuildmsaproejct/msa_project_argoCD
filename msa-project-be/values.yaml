@@ -4,6 +4,7 @@ image:
   repository: kylesungproject/msa-project-be
   tag: "6df6eea"
   pullPolicy: IfNotPresent
+
 replicaCount: 1
 service:
   type: ClusterIP
