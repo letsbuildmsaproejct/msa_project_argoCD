@@ -2,22 +2,18 @@ image:
   repository: kylesungproject/msa-project-fe
   tag: "7874209"
   pullPolicy: IfNotPresent
-
+  repository:image:
+    tag: kylesungproject/msa-project-fe:747d083
 replicaCount: 1
-
 service:
   type: ClusterIP
   port: 80
-
 ingress:
   enabled: false
-
 env:
   APP_ENV: "prod"
   API_BASE_PATH: "/api"
-
 secretEnvFrom: []
-
 probes:
   startup:
     path: "/"
@@ -35,7 +31,6 @@ probes:
     periodSeconds: 10
     timeoutSeconds: 2
     failureThreshold: 3
-
 resources:
   requests:
     cpu: 50m
