@@ -1,8 +1,7 @@
 image:
   repository: kylesungproject/msa-project-fe
-  tag: "7874209"
+  tag: "747d083"
   pullPolicy: IfNotPresent
-
 replicaCount: 1
 service:
   type: ClusterIP
