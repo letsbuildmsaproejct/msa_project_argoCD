@@ -7,7 +7,8 @@ metadata:
     argocd-image-updater.argoproj.io/image-list: app=kylesungproject/msa-project-be
     argocd-image-updater.argoproj.io/app.helm.image-name: image.repository
     argocd-image-updater.argoproj.io/app.helm.image-tag: image.tag
-    argocd-image-updater.argoproj.io/app.update-strategy: latest
+    argocd-image-updater.argoproj.io/app.helm.image-spec: image.repository:image.tag
+    argocd-image-updater.argoproj.io/app.update-strategy: newest-build
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/write-back-target: helmvalues:msa-project-be/values.yaml
     argocd-image-updater.argoproj.io/git-branch: main
@@ -22,7 +23,6 @@ spec:
     - repoURL: https://github.com/letsbuildmsaproejct/msa_project_argoCD.git
       targetRevision: main
       path: msa-project-be/secrets
-
     - repoURL: https://github.com/letsbuildmsaproejct/msa_project_argoCD.git
       targetRevision: main
       path: msa-project-be
